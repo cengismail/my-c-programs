@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <stdlib.h>
+int main(){
+
+    int ders_sayisi,i;
+    float not_degeri,toplam=0,ortalama;
+    
+    printf("Toplam ders sayisi:  ");
+    scanf("%d",&ders_sayisi);
+    
+    
+    
+    for(i=1; i<= ders_sayisi; i++) {
+       printf("%d. dersin notu:  ",i);
+       scanf("%f",&not_degeri);
+       toplam=toplam+not_degeri;
+	}
+	
+	ortalama= toplam/ders_sayisi;
+	printf("Ortalama: %.2f\n", ortalama);
+	
+	if(ortalama>=90) {
+		printf("Harf Notu: AA\n");
+	}else if (ortalama >= 80) {
+        printf("Harf notu: BA\n");
+    } else if (ortalama >= 70) {
+        printf("Harf notu: BB\n");
+    } else if (ortalama >= 60) {
+        printf("Harf notu: CB\n");
+    } else {
+        printf("Harf notu: CC veya alti\n");
+    }
+    
+    return 0;
+}
