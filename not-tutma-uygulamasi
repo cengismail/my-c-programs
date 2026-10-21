@@ -1,0 +1,34 @@
+#include <stdio.h>
+
+int main() {
+    int secim;
+    char satir[200];
+    FILE *dosya;
+
+    do {
+        printf("\n1) Not ekle\n2) Notlari goster\n0) Cikis\nSecim: ");
+        scanf("%d", &secim);
+        getchar();
+
+        if (secim == 1) {
+            printf("Notunu yaz: ");
+            fgets(satir, 200, stdin);
+            dosya = fopen("notlar.txt", "a");
+            fprintf(dosya, "%s", satir);
+            fclose(dosya);
+            printf("Kaydedildi.\n");
+        } else if (secim == 2) {
+            dosya = fopen("notlar.txt", "r");
+            if (dosya == NULL) {
+                printf("Henuz not yok.\n");
+            } else {
+                while (fgets(satir, 200, dosya) != NULL) {
+                    printf("- %s", satir);
+                }
+                fclose(dosya);
+            }
+        }
+    } while (secim != 0);
+
+    return 0;
+}
